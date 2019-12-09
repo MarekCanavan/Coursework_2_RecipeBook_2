@@ -25,9 +25,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE recipe_ingredients (" +
                 " recipe_id INT NOT NULL," +
                 " ingredient_id INT NOT NULL," +
-                " CONSTRAINT fk1 FOREIGN KEY (recipe_id) REFERENCES recipes (_id)," +
-                " CONSTRAINT fk2 FOREIGN KEY (ingredient_id) REFERENCES ingredients (_id)," +
+                " CONSTRAINT fk1 FOREIGN KEY (recipe_id) REFERENCES recipes (_id) ON delete cascade," +
+                " CONSTRAINT fk2 FOREIGN KEY (ingredient_id) REFERENCES ingredients (_id) ON delete cascade," +
                 " CONSTRAINT _id PRIMARY KEY (recipe_id, ingredient_id) );");
+
+
     }
 
 
